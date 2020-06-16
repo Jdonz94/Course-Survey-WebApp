@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="css/default.css"/>
+        <h:outputStylesheet name="css/cssLayout.css"/>
+        <title>Course Evaluation</title>
+    </h:head>
+    <h:form>
+    <h:body>
+
+
+
+        <h:graphicImage library ="images" name="HawksLogo.jpeg" class="image"></h:graphicImage>
+        
+        
+    <div align="center" id="top" class="top">
+        <ui:insert name="top">Student Course Evaluation, Spring 2020</ui:insert>
+    </div> 
+    <h:panelGrid  styleClass="teacherEval" columns="1" border = "1"  cellpadding = "2" cellspacing = "1"
+                columnClasses="column1">
+        <h:outputText class = "tableText" value ="COMMENTS ON STRENGTHS AND WAYS OF IMPROVEMENT"/>
+    </h:panelGrid>
+    <ui:repeat value='#{fourthPageBean.answerList}' var="answer">
+        <h:panelGrid class= "freeInput" columns="1">
+            <h:outputLabel value ="#{answer.number} #{answer.question}"></h:outputLabel>
+            <h:inputTextarea class="inputBox" value="#{answer.value}"/>
+        </h:panelGrid>
+    </ui:repeat>  
+    <h:commandButton value='complete' action='#{fourthPageBean.validatePage}'/>
+    </h:body>
+    </h:form>
+</html>

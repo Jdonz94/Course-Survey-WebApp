@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="css/default.css"/>
+        <h:outputStylesheet name="css/cssLayout.css"/>
+        <title>Evaluation Results</title>
+    </h:head>
+    <h:form>
+    <h:body>
+
+        
+
+        <h:graphicImage library ="images" name="HawksLogo.jpeg" class="image"></h:graphicImage>
+        
+        <div id="top" class="top">
+            <ui:insert name="top">Evaluation Results</ui:insert>
+        </div>
+        
+<!--        ************************SECTION 1***************************-->
+        <div align="center" id="top" class="top">
+            <ui:insert name="top">Section 1</ui:insert>
+        </div>
+        <h:panelGrid columns="1">
+            <h:outputText value="Course: #{firstPageBean.course}"/>
+            <h:outputText value="Instructor: #{firstPageBean.instructor}"/>
+            <h:outputText value="Term: #{firstPageBean.term}"/>
+        </h:panelGrid>
+<h:panelGrid id="section1Table" columns="2">
+    <h:panelGrid columns="1">
+        <h:dataTable styleClass="questionsTable" var="Answer" value="#{firstPageBean.qaList}">
+                    
+                <h:column class="column0">
+                    <h:outputText value="#{Answer.number} #{Answer.question}"/>
+                </h:column>
+              
+            
+        </h:dataTable>
+        
+            <h:outputText value="#{firstPageBean.question9.number} #{firstPageBean.question9.question}"/>
+            <h:outputText value="#{firstPageBean.question10.number} #{firstPageBean.question10.question}"/><!--
+            <h:outputText value="Free response: #{firstPageBean.freeResponse}"/>
+-->        
+    </h:panelGrid>
+    
+    <h:dataTable styleClass="questionTable" var ="Stats" value="#{resultsPageBean.page1Answers}">
+        <h:column class="column0">
+            <h:outputText value="#{Stats}"/>
+        </h:column>
+    </h:dataTable>
+</h:panelGrid>
+        
+        
+        
+
+
+<!--        ************************SECTION 2***************************-->
+        <div align="center" id="top" class="top">
+            <ui:insert name="top">Section 2</ui:insert>
+        </div>
+<h:panelGrid columns="2">
+    <h:panelGrid>
+        <h:dataTable styleClass="questionsTable" var="Answer" value="#{secondPageBean.answerList1}">
+                    
+        <h:column class="column0">
+            <h:outputText value="#{Answer.number} #{Answer.question}"/>
+        </h:column>
+    </h:dataTable>
+    <h:dataTable styleClass="questionsTable" var="Answer" value="#{secondPageBean.answerList2}">
+                    
+        <h:column class="column0">
+            <h:outputText value="#{Answer.number} #{Answer.question}"/>
+        </h:column>
+    </h:dataTable>
+    <h:dataTable styleClass="questionsTable" var="Answer" value="#{secondPageBean.answerList3}">
+
+        <h:column class="column0">
+            <h:outputText value="#{Answer.number} #{Answer.question}"/>
+        </h:column>
+    </h:dataTable>
+    </h:panelGrid>
+    
+    <h:dataTable value="#{resultsPageBean.page2Answers}" var="Stats2">
+        <h:column class="column0">
+            <h:outputText value="#{Stats2}"/>
+        </h:column>
+    </h:dataTable>
+</h:panelGrid>
+        
+<!--        <h:panelGrid columns="1">
+            <h:outputText value="Feedback and Assessment Comments: #{secondPageBean.freeResponse1}"/>
+            <h:outputText value="Resource and Administration Comments: #{secondPageBean.freeResponse2}"/>
+            <h:outputText value="Additional Questions Comments: #{secondPageBean.freeResponse3}"/>
+        </h:panelGrid>-->
+
+<!--        ************************SECTION 3***************************-->
+        <div align="center" id="top" class="top">
+            <ui:insert name="top">Section 3</ui:insert>
+        </div>
+<h:panelGrid columns="2">
+    
+    <h:panelGrid>
+        <h:dataTable styleClass="questionsTable" var="Answer" value="#{thirdPageBean.answerList1}">
+                    
+                <h:column class="column0">
+                    <h:outputText value="#{Answer.number} #{Answer.question}"/>
+                </h:column>
+        </h:dataTable>
+        <h:dataTable styleClass="questionsTable" var="Answer" value="#{thirdPageBean.answerList2}">
+                    
+                <h:column class="column0">
+                    <h:outputText value="#{Answer.number} #{Answer.question}"/>
+                </h:column>
+        </h:dataTable>
+        <h:dataTable styleClass="questionsTable" var="Answer" value="#{thirdPageBean.answerList3}">
+                    
+                <h:column class="column0">
+                    <h:outputText value="#{Answer.number} #{Answer.question}"/>
+                </h:column>
+        </h:dataTable>
+        <h:dataTable styleClass="questionsTable" var="Answer" value="#{thirdPageBean.answerList4}">
+                    
+                <h:column class="column0">
+                    <h:outputText value="#{Answer.number} #{Answer.question}"/>
+                </h:column>
+        </h:dataTable>
+    </h:panelGrid>
+        <h:dataTable value="#{resultsPageBean.page3Answers}" var="Stats3">
+            <h:column class="column0">
+            <h:outputText value="#{Stats3}"/>
+        </h:column>
+        </h:dataTable>
+</h:panelGrid>
+        
+<h:commandButton value="Run Report" action="#{resultsPageBean.pullReport()}"/>
+<!--        <h:panelGrid>
+            <h:outputText value="Comments (Overall Experience): #{thirdPageBean.freeResponse1}"/>
+            <h:outputText value="Comments (Student Evaluation): #{thirdPageBean.freeResponse2}"/>
+        </h:panelGrid>-->
+
+<!--        ************************SECTION 4***************************-->
+<!--        <div align="center" id="top" class="top">
+            <ui:insert name="top">Section 4</ui:insert>
+        </div>
+        <h:dataTable styleClass="questionsTable" var="Answer" value="#{fourthPageBean.answerList}">
+            <h:column class="column0">
+                <h:outputText value="#{Answer}"/>
+            </h:column>
+        </h:dataTable>-->
+
+
+    </h:body>
+    </h:form>
+</html>

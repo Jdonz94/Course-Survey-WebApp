@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="css/default.css"/>
+        <h:outputStylesheet name="css/cssLayout.css"/>
+        <title>Course Evaluation</title>
+    </h:head>
+    <h:form>
+    <h:body>
+       
+      
+        <h:graphicImage library ="images" name="HawksLogo.jpeg" class="image"></h:graphicImage>
+        
+        
+        <div align="center" id="top" class="top">
+            <ui:insert name="top">Student Course Evaluation, Spring 2020</ui:insert>
+        </div>
+        
+        
+        <h:panelGrid  class="courseProf" columns="2" border = "1" cellpadding = "2" cellspacing = "1"
+                columnClasses="colLeft,colRight,colLeft,colRight">
+            
+                <h:outputText value ="Course"/>
+                <h:inputText  id="courseInput" class = "inputFieldMain" value="#{firstPageBean.course}"/>
+                <h:outputText value ="Instructor"/>
+                <h:inputText id = "instructorInput" class = "inputFieldMain" value="#{firstPageBean.instructor}"/>
+                <h:outputText value ="Term and Year"/>
+                <h:inputText id = "termInput" class = "inputFieldMain" value="#{firstPageBean.term}" />
+                
+        </h:panelGrid>
+            <div align="center">
+                <h:outputLabel styleClass ="instructionLabel"  value="Please select the response that best describes how you feel."/> 
+            </div>
+            
+    
+        
+        
+        <h:panelGrid  styleClass="teacherEval" columns="6" border = "1"  cellpadding = "2" cellspacing = "1"
+                columnClasses="column1,column,column,column,column,column">
+            
+                <h:outputText class = "tableText" value ="Teacher Approaches"/>
+                <h:outputText class = "tableText" value ="Strongly Agree"/>
+                <h:outputText class = "tableText" value ="Agree"/>
+                <h:outputText class = "tableText" value ="Neutral"/>
+                <h:outputText class = "tableText" value ="Disagree"/>
+                <h:outputText class = "tableText" value ="Strongly Disagree"/>
+        </h:panelGrid>
+            
+            
+        <ui:repeat value="#{firstPageBean.qaList}" var="qa">     
+        <h:panelGrid columns="2" columnClasses="column0, column2">
+            <h:outputText value="#{qa.number} #{qa.question}"/>
+
+
+            
+            <h:selectOneRadio styleClass = "radioButtonTable" value="#{qa.value}" >
+                <f:selectItem class="radioButton" itemValue = "Strongly Agree"/>
+                <f:selectItem class="radioButton" itemValue = "Agree"/>
+                <f:selectItem class="radioButton" itemValue = "Neutral"/>
+                <f:selectItem class="radioButton" itemValue = "Disagree"/>
+                <f:selectItem class="radioButton" itemValue = "Strongly Disagree"/>
+            </h:selectOneRadio>
+            
+            
+        </h:panelGrid>
+        </ui:repeat>    
+            
+        <h:panelGrid styleClass="yesOrNoTable" columns="2" style="padding-top: 30px">
+                <h:outputLabel value="Yes"/>
+                <h:outputLabel value="No"/>
+        </h:panelGrid>
+        
+        <h:panelGrid columns="2" columnClasses="questions, radioButtons">
+            <h:outputLabel value="9) The instructor was accessible outside of class."/>
+            <h:selectOneRadio styleClass = "radioButtonTable" value = "#{firstPageBean.question9.value}">
+                <f:selectItem class="radioButton" itemValue = "Yes"/>
+                <f:selectItem class="radioButton" itemValue = "No"/>
+            </h:selectOneRadio>
+            <h:outputLabel value ="10) Did the instructor actively attempt to prevent cheating in this course?"/>
+            <h:selectOneRadio styleClass = "radioButtonTable" value = "#{firstPageBean.question10.value}">
+                <f:selectItem class="radioButton" itemValue = "Yes"/>
+                <f:selectItem class="radioButton" itemValue = "No"/>
+            </h:selectOneRadio>
+        </h:panelGrid>
+    
+        <h:panelGrid class= "freeInput" columns="1">
+            <h:outputLabel value ="Please input anything you feel wasn't covered by the above questions that you'd like to include"></h:outputLabel>
+            <h:inputTextarea class="inputBox" value="#{firstPageBean.freeResponse}"/>
+        </h:panelGrid>
+        <h:commandButton  value="Submit" action="#{firstPageBean.validatePage}"></h:commandButton>  
+        
+    </h:body>
+        </h:form>
+</html>

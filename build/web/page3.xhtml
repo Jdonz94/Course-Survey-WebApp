@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="css/default.css"/>
+        <h:outputStylesheet name="css/cssLayout.css"/>
+        <title>Course Evaluation</title>
+    </h:head>
+<h:form>
+    <h:body>
+            
+        
+    <h:graphicImage library ="images" name="HawksLogo.jpeg" class="image"></h:graphicImage>
+        
+        
+    <div align="center" id="top" class="top">
+        <ui:insert name="top">Student Course Evaluation, Spring 2020</ui:insert>
+    </div>    
+    
+
+    <h:panelGrid styleClass="experienceTable"  columns="3">
+        <h:outputLabel value="Overall Experience"/>
+        <h:outputLabel value="Yes"/>
+        <h:outputLabel value="No"/>
+    </h:panelGrid>
+    
+    <h:dataTable styleClass="questionsTable" var="Answer" value="#{thirdPageBean.answerList1}">
+                    
+                <h:column class="column3">
+                    <h:outputText value="#{Answer.number} #{Answer.question}"/>
+                </h:column>
+                
+                <h:column class="column4">
+                    <h:selectOneRadio styleClass = "radioButtonTable"  value = "#{Answer.value}">
+                        <f:selectItem class="radioButton" itemValue = "Yes"/>
+                        <f:selectItem class="radioButton" itemValue = "No"/>
+                        
+                    </h:selectOneRadio>
+                </h:column>
+                    
+    </h:dataTable>
+    <h:panelGrid  style= "margin-top: 30px;" styleClass="teacherEval" columns="6" border = "1"  cellpadding = "2" cellspacing = "1"
+            columnClasses="column1,column,column,column,column,column">
+
+            <h:outputText class = "tableText" value =""/>
+            <h:outputText class = "tableText" value ="Excellent"/>
+            <h:outputText class = "tableText" value ="Very Good"/>
+            <h:outputText class = "tableText" value ="Good"/>
+            <h:outputText class = "tableText" value ="Fair"/>
+            <h:outputText class = "tableText" value ="Poor"/>
+    </h:panelGrid>
+    <h:dataTable styleClass="questionsTable" var="Answer" value="#{thirdPageBean.answerList2}">
+                    
+        <h:column class="column0">
+            <h:outputText value="#{Answer.number} #{Answer.question}"/>
+        </h:column>
+
+        <h:column class="column2">
+            <h:selectOneRadio styleClass = "radioButtonTable"  value = "#{Answer.value}">
+                <f:selectItem class="radioButton" itemValue = "Excellent"/>
+                <f:selectItem class="radioButton" itemValue = "Very Good"/>
+                <f:selectItem class="radioButton" itemValue = "Good"/>
+                <f:selectItem class="radioButton" itemValue = "Fair"/>
+                <f:selectItem class="radioButton" itemValue = "Poor"/>
+                
+            </h:selectOneRadio>
+        </h:column>
+                    
+    </h:dataTable>
+    <h:panelGrid  style= "margin-top: 30px;" styleClass="teacherEval" columns="6" border = "1"  cellpadding = "2" cellspacing = "1"
+            columnClasses="column1,column,column,column,column,column">
+
+            <h:outputText class = "tableText" value =""/>
+            <h:outputText class = "tableText" value =""/>
+            <h:outputText class = "tableText" value ="A: 0-4H"/>
+            <h:outputText class = "tableText" value ="B: 5-8H"/>
+            <h:outputText class = "tableText" value ="C: 9-12H"/>
+            <h:outputText class = "tableText" value ="D: 13-16H"/>
+            
+    </h:panelGrid>
+    <h:dataTable styleClass="questionsTable" var="Answer" value="#{thirdPageBean.answerList3}">
+                    
+        <h:column class="column0">
+            <h:outputText value="#{Answer.number} #{Answer.question}"/>
+        </h:column>
+
+        <h:column class="column2">
+            <h:selectOneRadio styleClass = "radioButtonTable"  value = "#{Answer.value}">
+                <f:selectItem class="radioButton" itemValue = "A: 0-4H"/>
+                <f:selectItem class="radioButton" itemValue = "B: 5-8H"/>
+                <f:selectItem class="radioButton" itemValue = "C: 9-12H"/>
+                <f:selectItem class="radioButton" itemValue = "D: 13-16H"/>
+                
+                
+            </h:selectOneRadio>
+        </h:column>
+                    
+    </h:dataTable>
+    <h:panelGrid class= "freeInput" columns="1">
+        <h:outputLabel value ="Comments (Overall Experience)"></h:outputLabel>
+        <h:inputTextarea class="inputBox" value="#{thirdPageBean.freeResponse1}"/>
+    </h:panelGrid>
+    <h:panelGrid  style= "margin-top: 30px;" styleClass="teacherEval" columns="6" border = "1"  cellpadding = "2" cellspacing = "1"
+            columnClasses="column1,column,column,column,column,column">
+
+        <h:outputText class = "tableText" value ="STUDENT SELF EVALUATION\nPlease comment on your own work for this course."/>
+        <h:outputText class = "tableText" value ="Strongly Agree"/>
+        <h:outputText class = "tableText" value ="Agree"/>
+        <h:outputText class = "tableText" value ="Neutral"/>
+        <h:outputText class = "tableText" value ="Disagree"/>
+        <h:outputText class = "tableText" value ="Strongly Disagree"/>
+            
+    </h:panelGrid>
+    <h:dataTable styleClass="questionsTable" var="Answer" value="#{thirdPageBean.answerList4}">
+                    
+        <h:column class="column0">
+            <h:outputText value="#{Answer.number} #{Answer.question}"/>
+        </h:column>
+
+        <h:column class="column2">
+            <h:selectOneRadio styleClass = "radioButtonTable"  value = "#{Answer.value}">
+                <f:selectItem class="radioButton" itemValue = "Strongly Agree"/>
+                <f:selectItem class="radioButton" itemValue = "Agree"/>
+                <f:selectItem class="radioButton" itemValue = "Neutral"/>
+                <f:selectItem class="radioButton" itemValue = "Disagree"/>
+                <f:selectItem class="radioButton" itemValue = "Strongly Disagree"/>
+                
+            </h:selectOneRadio>
+        </h:column>
+                    
+    </h:dataTable>
+    <h:panelGrid class= "freeInput" columns="1">
+        <h:outputLabel value ="Comments (Student Evaluation)"></h:outputLabel>
+        <h:inputTextarea class="inputBox" value="#{thirdPageBean.freeResponse2}"/>
+    </h:panelGrid>
+        <h:commandButton value="Submit" action="#{thirdPageBean.validatePage}"/>
+    
+
+    </h:body>
+    </h:form>
+</html>

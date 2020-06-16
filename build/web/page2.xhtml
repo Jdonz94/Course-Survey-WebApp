@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="css/default.css"/>
+        <h:outputStylesheet name="css/cssLayout.css"/>
+        <title>Course Evaluation</title>
+    </h:head>
+    <h:form>
+    <h:body>
+         <h:graphicImage library ="images" name="HawksLogo.jpeg" class="image"></h:graphicImage>
+        
+        
+        <div align="center" id="top" class="top">
+            <ui:insert name="top">Student Course Evaluation, Spring 2020</ui:insert>
+        </div>
+         
+        
+        <h:panelGrid  styleClass="teacherEval" columns="6" border = "1"  cellpadding = "2" cellspacing = "1"
+                columnClasses="column1,column,column,column,column,column">
+            
+                <h:outputText class = "tableText" value ="Feedback and Assessment"/>
+                <h:outputText class = "tableText" value ="Strongly Agree"/>
+                <h:outputText class = "tableText" value ="Agree"/>
+                <h:outputText class = "tableText" value ="Neutral"/>
+                <h:outputText class = "tableText" value ="Disagree"/>
+                <h:outputText class = "tableText" value ="Strongly Disagree"/>
+        </h:panelGrid>
+            
+        <h:dataTable styleClass="questionsTable" var="Answer" value="#{secondPageBean.answerList1}">
+                    
+                <h:column class="column0">
+                    <h:outputText value="#{Answer.number} #{Answer.question}"/>
+                </h:column>
+                
+                <h:column class="column2">
+                    <h:selectOneRadio styleClass = "radioButtonTable"  value = "#{Answer.value}">
+                        <f:selectItem class="radioButton" itemValue = "Strongly Agree"/>
+                        <f:selectItem class="radioButton" itemValue = "Agree"/>
+                        <f:selectItem class="radioButton" itemValue = "Neutral"/>
+                        <f:selectItem class="radioButton" itemValue = "Disagree"/>
+                        <f:selectItem class="radioButton" itemValue = "Strongly Disagree"/>
+                    </h:selectOneRadio>
+                </h:column>
+                    
+        </h:dataTable>
+        <h:panelGrid class= "freeInput" columns="1">
+            <h:outputLabel value ="Comments (Feedback and Assessment)"></h:outputLabel>
+            <h:inputTextarea class="inputBox" value="#{secondPageBean.freeResponse1}"/>
+        </h:panelGrid>
+            
+        <h:panelGrid  styleClass="teacherEval" columns="6" border = "1"  cellpadding = "2" cellspacing = "1"
+            columnClasses="column1,column,column,column,column,column">
+
+            <h:outputText class = "tableText" value ="Resources and Administration"/>
+            <h:outputText class = "tableText" value ="Strongly Agree"/>
+            <h:outputText class = "tableText" value ="Agree"/>
+            <h:outputText class = "tableText" value ="Neutral"/>
+            <h:outputText class = "tableText" value ="Disagree"/>
+            <h:outputText class = "tableText" value ="Strongly Disagree"/>
+        </h:panelGrid>
+        
+        
+        <h:dataTable styleClass="questionsTable" var="Answer" value="#{secondPageBean.answerList2}">
+                    
+                <h:column class="column0">
+                    <h:outputText value="#{Answer.number} #{Answer.question}"/>
+                </h:column>
+                
+                <h:column class="column2">
+                    <h:selectOneRadio styleClass = "radioButtonTable"  value = "#{Answer.value}">
+                        <f:selectItem class="radioButton" itemValue = "Strongly Agree"/>
+                        <f:selectItem class="radioButton" itemValue = "Agree"/>
+                        <f:selectItem class="radioButton" itemValue = "Neutral"/>
+                        <f:selectItem class="radioButton" itemValue = "Disagree"/>
+                        <f:selectItem class="radioButton" itemValue = "Strongly Disagree"/>
+                    </h:selectOneRadio>
+                </h:column>
+                    
+        </h:dataTable>
+            
+        <h:panelGrid class= "freeInput" columns="1">
+            <h:outputLabel value ="Comments (Resources and Administration)"></h:outputLabel>
+            <h:inputTextarea class="inputBox" value="#{secondPageBean.freeResponse2}"/>
+        </h:panelGrid>
+            
+        <h:panelGrid styleClass="yesOrNoTable" columns="2" style="padding-top: 30px; margin-top: 20px;">
+                <h:outputLabel value="Yes"/>
+                <h:outputLabel value="No"/>
+        </h:panelGrid>
+        <h:dataTable styleClass="questionsTable" var="Answer" value="#{secondPageBean.answerList3}">
+                    
+                <h:column class="column0">
+                    <h:outputText value="#{Answer.number} #{Answer.question}"/>
+                </h:column>
+                
+                <h:column class="column2">
+                    <h:selectOneRadio styleClass = "radioButtonTable"  value = "#{Answer.value}">
+                        <f:selectItem class="radioButton" itemValue = "Yes"/>
+                        <f:selectItem class="radioButton" itemValue = "No"/>
+                        
+                    </h:selectOneRadio>
+                </h:column>
+                    
+        </h:dataTable>
+        <h:panelGrid class= "freeInput" columns="1">
+            <h:outputLabel value ="Comments (Additional Questions)"></h:outputLabel>
+            <h:inputTextarea class="inputBox" value="#{secondPageBean.freeResponse3}"/>
+        </h:panelGrid>
+        <h:commandButton  value="submit" action="#{secondPageBean.validatePage}"></h:commandButton>  
+        
+    </h:body>
+        </h:form>
+</html>
+

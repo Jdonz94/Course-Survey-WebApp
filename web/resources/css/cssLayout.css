@@ -1,0 +1,218 @@
+
+#top {
+    font-weight: bold;
+    position: relative;
+    background-color: #036fab;
+    color: white;
+    padding: 5px;
+    margin: 0px 0px 10px 0px;
+}
+
+#bottom {
+    position: relative;
+    background-color: #c2dfef;
+    padding: 5px;
+    margin: 10px 0px 0px 0px;
+}
+
+#left {
+    float: left;
+    background-color: #ece3a5;
+    padding: 5px;
+    width: 150px;
+}
+
+#right {
+    float: right;
+    background-color: #ece3a5;
+    padding: 5px;
+    width: 150px;
+}
+
+/*Header for landing page*/
+.userInfoForm{
+    width: 100%;
+}
+
+table.courseProf{
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: 50px;
+    border-collapse: collapse;
+}
+
+table.colLeft{
+    width:10%;
+}
+
+table.colRight{
+    width: 40%;
+    
+}
+
+.questionsTable td{
+    max-width:50%;
+}
+
+.instructionLabel{
+    background-color: #AFAFAF;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.inputFieldMain{
+    width: 99%;
+    font-size: 30px;
+}
+
+/*TEACHER EVALUATION CODE*/
+.teacherApproaches{
+    
+    width: 100%;
+    padding-top: 25px;
+   
+}
+
+
+.teacherEval{
+    margin-left: auto;
+    margin-right: auto;
+    border-color: white;
+    background-color: #036fab;
+    border-collapse: collapse;
+    border-color: white;
+    
+}
+table{
+    width: 100%;
+}
+
+
+
+.tableText{
+    font-weight: bold;
+    color: white;
+}
+
+table.radioButtonTable td {
+   
+    padding-right: 100px;
+    padding-left: 100px;
+}
+
+td.column{
+    width: 220px;
+    border-color: white;
+    text-align: center;
+}
+
+table td.column0{
+    max-width: 35%;
+    border-color: white;
+    
+}
+
+td.column2{
+    width: 22%;
+    
+}
+
+td.column1{
+    max-width: 36%;
+    border-color: white;
+    text-align: center;
+}
+
+.questionsTable column1{
+    width: 50%;
+}
+
+.questionTable column3 {
+    max-width: 50%;
+}
+.yesOrNoTable{
+    background-color: #AFAFAF;
+    text-align: center;
+    font-weight: bold;
+    float: right;
+    width: 50%;
+    
+}
+
+.experienceTable{
+    background-color: #AFAFAF;
+    text-align: center;
+    font-weight: bold;
+    width: 100%;
+    padding-top: 30px;
+
+}
+
+.experienceTable td{
+    width: 33%;
+}
+
+.freeInput{
+    font-weight: bold;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 30px;
+    width: 50%;
+    text-align: center;
+    
+}
+
+.inputBox{
+    font-size: 16px;
+    width:100%;
+    height: 200px;
+}
+
+.yesOrNoTable td{
+    width: 50%;
+}
+
+form.submitButton{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 10%;
+}
+
+.center_content {
+    position: relative;
+    background-color: #dddddd;
+    padding: 5px;
+}
+
+.left_content {
+    background-color: #dddddd;
+    padding: 5px;
+    margin-left: 170px;
+}
+
+.right_content {
+    background-color: #dddddd;
+    padding: 5px;
+    margin: 0px 170px 0px 170px;
+}
+
+#top a:link, #top a:visited {
+  color: white;
+  font-weight : bold;
+  text-decoration: none;
+}
+
+#top a:link:hover, #top a:visited:hover  {
+  color: black;
+  font-weight : bold;
+  text-decoration : underline;
+}
+
+
